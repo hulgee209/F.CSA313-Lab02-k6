@@ -43,4 +43,31 @@ k6.exe v2.2.0 (commit/00a9a1b7f5, go1.26.5, windows/amd64)
 
 ## Stages test
 
-`stages.js` файлыг тусад нь ажиллуулж, ачааллыг 30 секундэд 5 VU, 1 минутанд 30 VU, 30 секундэд 100 VU болгон өсгөж, эцэст нь 30 секундэд 0 VU болгон буулгасан.
+`stages.js` файлыг тусад нь ажиллуулж, ачааллыг 30 секундэд 5 VU, 1 минутанд 30 VU, 30 секундэд 100 VU болгон өсгөж, эцэст нь 30 секундэд 0 VU болгон буулгасан. Тест 2 минут 30 секунд үргэлжилж, хамгийн ихдээ 100 VU хүрсэн.
+
+- `http_req_duration` average: 156.57 ms
+- `http_req_duration` p90: 237.75 ms
+- `http_req_duration` p95: 246.99 ms
+- `http_reqs`: 6,916 нийт, 45.948689/s
+- `http_req_failed`: 0.00% (0 / 6,916)
+- Checks: 3,458 / 3,458 амжилттай (100.00%)
+
+## SLO / Threshold
+
+Baseline p95 нь 232.78 ms байсан тул 1.5 дахин нөөц тооцож `232.78 × 1.5 = 349.17 ms` SLO сонгосон. Энэ нь бодит baseline хэмжилтэд үндэслэсэн бөгөөд хэвийн хэлбэлзэлд хангалттай зай үлдээнэ.
+
+- `http_req_duration`: `p(95)<349.17`
+- `http_req_failed`: `rate<0.01`
+
+## PASS result
+
+`threshold-pass.js` тестэд `p(95)<349.17` болон `rate<0.01` threshold хоёулаа PASS болсон. Бодит p95 нь 235.84 ms, error rate нь 0.00% (0 / 230) байв.
+
+## FAIL result
+
+`threshold-fail.js` тестэд зориудаар хатууруулсан `p(95)<50` threshold FAIL болсон. Бодит p95 нь 234.47 ms тул 50 ms босгыг хангаагүй, харин error-rate threshold нь 0.00% (0 / 222)-оор PASS болсон.
+
+## Screenshots
+
+- [PASS threshold output](screenshots/threshold-pass.png)
+- [FAIL threshold output](screenshots/threshold-fail.png)
