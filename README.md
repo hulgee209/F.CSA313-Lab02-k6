@@ -65,13 +65,13 @@ Baseline p95 нь 299.94 ms байсан тул 1.5 дахин нөөц тооц
 
 ## PASS result
 
-`threshold-pass.js` тестийг 30 VU, 1 минут ажиллуулахад `p(95)<449.91` болон `rate<0.01` threshold хоёулаа PASS болсон. Бодит p95 нь 276.97 ms, error rate нь 0.00% (0 / 2,722) байв.
+`threshold-pass.js` тестийг 30 VU, 1 минут ажиллуулахад `p(95)<449.91` болон `rate<0.01` threshold хоёулаа PASS болсон. Бодит p95 нь 324.22 ms, error rate нь 0.00% (0 / 2,624) байв.
 
 Бүтэн PASS гаралт: [`results/threshold-pass.txt`](results/threshold-pass.txt).
 
 ## FAIL result
 
-`threshold-fail.js` тестийг 30 VU, 1 минут ажиллуулахад зориудаар хатууруулсан `p(95)<50` threshold FAIL болсон. Бодит p95 нь 290.56 ms тул 50 ms босгыг хангаагүй, харин error-rate threshold нь 0.00% (0 / 2,652)-оор PASS болсон.
+`threshold-fail.js` тестийг 30 VU, 1 минут ажиллуулахад зориудаар хатууруулсан `p(95)<50` threshold FAIL болсон. Бодит p95 нь 393.31 ms тул 50 ms босгыг хангаагүй, харин error-rate threshold нь 0.00% (0 / 2,600)-оор PASS болсон.
 
 Бүтэн FAIL гаралт: [`results/threshold-fail.txt`](results/threshold-fail.txt).
 
@@ -93,5 +93,5 @@ Baseline p95 нь 299.94 ms байсан тул 1.5 дахин нөөц тооц
 5. Throughput нь 5 VU-ийн 7.370686 request/s-ээс 30 VU-д 43.068321 request/s, 100 VU-д 129.03345 request/s болж өссөн.
 6. Гурван тогтмол VU тестэд error rate 0.00% хэвээр байсан тул энэ ачааллын хүрээнд HTTP хүсэлтүүд амжилттай хариулав.
 7. Stages test-д p95 350.01 ms, error rate 0.00%, хамгийн их ачаалал 100 VU байсан нь шаталсан ачаалалд ч алдаа гараагүйг харуулсан.
-8. Baseline p95 299.94 ms-д үндэслэн сонгосон 449.91 ms SLO-г 30 VU-ийн PASS test-ийн 276.97 ms p95 хангасан.
-9. Харин 50 ms-ийн зориудаар хатуу FAIL threshold нь бодит 290.56 ms p95-д хангагдаагүй бөгөөд latency SLO-оос давбал хэрэглэгчийн хариу хүлээх хугацаа муудна гэдгийг баталсан.
+8. Baseline p95 299.94 ms-д үндэслэн сонгосон 449.91 ms SLO-г 30 VU-ийн PASS test-ийн 324.22 ms p95 хангасан.
+9. Харин 50 ms-ийн зориудаар хатуу FAIL threshold нь бодит 393.31 ms p95-д хангагдаагүй бөгөөд latency SLO-оос давбал хэрэглэгчийн хариу хүлээх хугацаа муудна гэдгийг баталсан.
